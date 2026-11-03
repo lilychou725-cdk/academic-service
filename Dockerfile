@@ -11,14 +11,13 @@ RUN ARCH=$(uname -m) && \
     chmod +x /usr/local/bin/xray && \
     rm -rf /tmp/xray.zip
 
-# 复制前端伪装网站与入口脚本
 COPY index.html /var/www/html/index.html
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-ENV PORT=8080
+ENV PORT=3000
 ENV UUID=b831381d-6324-4d53-ad4f-8cda48b30811
 ENV WS_PATH=/ws
 
-EXPOSE 8080
+EXPOSE 3000
 ENTRYPOINT ["/entrypoint.sh"]
